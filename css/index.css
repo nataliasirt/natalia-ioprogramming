@@ -1,44 +1,134 @@
 body {
-    background-color: #eef1c7e8; 
+    background-color: #eef1c7e8;
     color: #333;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
+    font-size: 22px;
     font-weight: 400;
-    font-style: normal;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
-h1{
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+nav {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    display: flex
+    
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #f4f4f4;
+}
+
+h1 {
     font-weight: bold;
-    color: black; /* Example color, choose your own! */
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
 }
+
+.profile-picture {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
 section {
-    padding: 20px; 
-    margin-bottom: 30px; 
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-#Experience li {
+
+#Experience {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.experience-item {
     background-color: #f5f5f5;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px; 
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-#Connect a {
-    color: black; 
-    text-decoration: none; 
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience-header .title {
     font-weight: bold;
+    font-size: 1.2em;
+}
+
+.experience-header .date {
+    font-weight: 300;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.description {
+    font-size: 1em;
+    color: #555;
+}
+
+#Connect ul {
+    padding: 0;
+    list-style: none;
+}
+
+#Connect li {
+    margin-bottom: 10px;
+}
+
+#Connect a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 #Connect a:hover {
-    color: #0056b3; 
-    text-decoration: underline; 
+    color: #0056b3;
+    text-decoration: underline;
 }
+
 .fa {
-    padding: 20px;
+    margin-right: 10px;
     font-size: 20px;
-    font: "Roboto", sans-serif;
-    font-style: normal;
-    width: 50px;
+    width: 25px;
     text-align: center;
-    text-decoration: none;
-  }
-  .fa:hover {
+    font-family: "Open Sans", sans-serif;
+}
+
+.fa:hover {
     opacity: 0.7;
-  }
-  
+}
