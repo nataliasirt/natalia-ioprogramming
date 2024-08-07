@@ -1,0 +1,44 @@
+body {
+    background-color: #eef1c7e8; 
+    color: #333;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1{
+    font-weight: bold;
+    color: black; /* Example color, choose your own! */
+}
+section {
+    padding: 20px; 
+    margin-bottom: 30px; 
+}
+#Experience li {
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px; 
+}
+#Connect a {
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold;
+}
+
+#Connect a:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+}
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    font: "Roboto", sans-serif;
+    font-style: normal;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
