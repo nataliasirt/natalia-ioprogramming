@@ -71,37 +71,36 @@ messageForm.addEventListener('submit', function(event) {
 });
 
 (function(window, document, undefined) {
-
   window.onload = init;
-
-  async function init(){
-let repos = await getGitRepos();
-    if (repos) {
+  async function init() {
+    let repos = await getGitRepos();
+    if (repos && repos.length > 0) {
       console.log(`We've got data...`);
-      let projectSection = document.getElementById("Projects");
+      let projectSection = document.getElementById("Projects");  
       console.log(projectSection);
       let projectList = projectSection.getElementsByTagName("ol")[0];
-      for (let i=0; i < repos.length; i++) {
-        project = document.createElement("li");
+      for (let i = 0; i < repos.length; i++) {
+        let project = document.createElement("li");  // Declare 'let' to avoid scoping issues
         project.innerHTML = repos[i]["name"];
         projectList.appendChild(project);
       }
     }
   }
+
   async function getGitRepos() {
     try {
-      const repositories = await fetch('https://api.github.com/users/nataliasirt/repos').then( (rs) => {
-        if (!rs.ok) {
-          throw new Error('Request failed');
-        }
-        return rs.json();
-      }).then( (jsonData) => {
-        return jsonData;
-      });
+      const repositories = await fetch('https://api.github.com/users/nataliasirt/repos')
+        .then((rs) => {
+          if (!rs.ok) {
+            throw new Error('Request failed');
+          }
+          return rs.json();
+        });
       console.log(repositories);
       return repositories;
     } catch(err) {
       console.log(`Encountered error when attempting to fetch Git repos: ${err}`);
+      return [];  // Return an empty array or null if there is an error
     }
   }
 
