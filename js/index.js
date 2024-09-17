@@ -20,7 +20,7 @@ footer.appendChild(copyright);
 
 //3. ADD SKILLS DINAMICALLY IN JS
 // Create an array of skills
-const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Adobe Photoshop"];
+const skills = ["JavaScript", "HTML", "CSS", "GitHub"];
 
 // Select the skills section and the <ul> element within it
 const skillsSection = document.getElementById('Skills');
@@ -70,3 +70,38 @@ messageForm.addEventListener('submit', function(event) {
   messageForm.reset();
 });
 
+(function(window, document, undefined) {
+  window.onload = init;
+  async function init() {
+    let repos = await getGitRepos();
+    if (repos && repos.length > 0) {
+      console.log(`We've got data...`);
+      let projectSection = document.getElementById("Projects");  
+      console.log(projectSection);
+      let projectList = projectSection.getElementsByTagName("ol")[0];
+      for (let i = 0; i < repos.length; i++) {
+        let project = document.createElement("li");  // Declare 'let' to avoid scoping issues
+        project.innerHTML = repos[i]["name"];
+        projectList.appendChild(project);
+      }
+    }
+  }
+
+  async function getGitRepos() {
+    try {
+      const repositories = await fetch('https://api.github.com/users/nataliasirt/repos')
+        .then((rs) => {
+          if (!rs.ok) {
+            throw new Error('Request failed');
+          }
+          return rs.json();
+        });
+      console.log(repositories);
+      return repositories;
+    } catch(err) {
+      console.log(`Encountered error when attempting to fetch Git repos: ${err}`);
+      return [];  // Return an empty array or null if there is an error
+    }
+  }
+
+})(window, document, undefined);
