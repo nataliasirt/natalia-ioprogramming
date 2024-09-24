@@ -78,7 +78,7 @@ messageForm.addEventListener('submit', function(event) {
       console.log(`We've got data...`);
       let projectSection = document.getElementById("Projects");  
       console.log(projectSection);
-      let projectList = projectSection.getElementsByTagName("ol")[0];
+      let projectList = projectSection.getElementsByTagName("ul")[0];
       for (let i = 0; i < repos.length; i++) {
         let project = document.createElement("li");  // Declare 'let' to avoid scoping issues
         project.innerHTML = repos[i]["name"];
