@@ -255,3 +255,12 @@ label {
   #messages:empty {
     display: none;
   }
+  #Projects ul li a {
+    color: black;  /* Set link color to black */
+    text-decoration: none;  /* Remove underline */
+    font-weight: bold;
+}
+
+#Projects ul li a:hover {
+    text-decoration: underline;  /* Add underline on hover */
+}

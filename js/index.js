@@ -1,37 +1,78 @@
-//1. ADD A FOOTER ELEMENT 
-// Create the footer element
+// Add the footer and copyright as before
 const footer = document.createElement('footer');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 body.appendChild(footer);
 
-//2. INSERT COPYRIGHT TEXT IN FOOTER:
-// Create a new date object and extract the current year
 const today = new Date();
 const thisYear = today.getFullYear();
 
-// Create a copyright paragraph element
 const copyright = document.createElement('p');
-
-// Set the inner HTML with the copyright symbol, your name, and the current year
-copyright.innerHTML = ` <span> Natalia Sirtak </span> <span>&#169</span><span>${thisYear}</span/>`;
-
-// Append the copyright element to the footer
+copyright.innerHTML = `<span>Natalia Sirtak</span> <span>&#169;</span><span>${thisYear}</span>`;
 footer.appendChild(copyright);
 
-//3. ADD SKILLS DINAMICALLY IN JS
-// Create an array of skills
+// Add skills dynamically
 const skills = ["JavaScript", "HTML", "CSS", "GitHub"];
-
-// Select the skills section and the <ul> element within it
 const skillsSection = document.getElementById('Skills');
 const skillsList = skillsSection.querySelector('ul');
 
+// Clear any existing skills if the function is re-run
+skillsList.innerHTML = "";
+
 // Loop through the array and create <li> elements for each skill
 for (let i = 0; i < skills.length; i++) {
-    const skill = document.createElement('li');
-    skill.textContent = skills[i];
-    skillsList.appendChild(skill);
+  const skill = document.createElement('li');
+  skill.textContent = skills[i];
+  skillsList.appendChild(skill);
 }
+
+// Fetch GitHub repositories and add them dynamically
+(function(window, document, undefined) {
+  window.onload = init;
+
+  async function init() {
+    let repos = await getGitRepos();
+    if (repos && repos.length > 0) {
+      console.log(`We've got data...`);
+      let projectList = document.getElementById("project_list");
+
+      // Clear any existing projects if the function is re-run
+      projectList.innerHTML = "";
+
+      // Loop through the fetched repos and add each one as a clickable link
+      for (let i = 0; i < repos.length; i++) {
+        let project = document.createElement("li");
+        
+        let projectLink = document.createElement("a");
+        projectLink.href = repos[i]["html_url"]; // Set the href to the GitHub repository URL
+        projectLink.target = "_blank"; // Open the link in a new tab
+        projectLink.textContent = repos[i]["name"]; // Set the anchor text to the repository name
+        
+        project.appendChild(projectLink);
+        projectList.appendChild(project);
+      }
+    }
+  }
+
+  // Fetch the list of repositories from the GitHub API
+  async function getGitRepos() {
+    try {
+      const repositories = await fetch('https://api.github.com/users/nataliasirt/repos')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Request failed');
+          }
+          return response.json();
+        });
+      console.log(repositories);
+      return repositories;
+    } catch(err) {
+      console.log(`Error fetching Git repos: ${err}`);
+      return [];
+    }
+  }
+
+})(window, document, undefined);
+
 // Select the form
 const messageForm = document.forms.leave_message;
 // Add an event listener to handle the form submission
@@ -69,39 +110,3 @@ messageForm.addEventListener('submit', function(event) {
   // Clear the form fields
   messageForm.reset();
 });
-
-(function(window, document, undefined) {
-  window.onload = init;
-  async function init() {
-    let repos = await getGitRepos();
-    if (repos && repos.length > 0) {
-      console.log(`We've got data...`);
-      let projectSection = document.getElementById("Projects");  
-      console.log(projectSection);
-      let projectList = projectSection.getElementsByTagName("ul")[0];
-      for (let i = 0; i < repos.length; i++) {
-        let project = document.createElement("li");  // Declare 'let' to avoid scoping issues
-        project.innerHTML = repos[i]["name"];
-        projectList.appendChild(project);
-      }
-    }
-  }
-
-  async function getGitRepos() {
-    try {
-      const repositories = await fetch('https://api.github.com/users/nataliasirt/repos')
-        .then((rs) => {
-          if (!rs.ok) {
-            throw new Error('Request failed');
-          }
-          return rs.json();
-        });
-      console.log(repositories);
-      return repositories;
-    } catch(err) {
-      console.log(`Encountered error when attempting to fetch Git repos: ${err}`);
-      return [];  // Return an empty array or null if there is an error
-    }
-  }
-
-})(window, document, undefined);
