@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300;500&family=Tai+Heritage+Pro:wght@700&display=swap"
-      rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300;500&family=Tai+Heritage+Pro:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <title>Natalia Sirtak CV</title>
 </head>
@@ -17,10 +14,9 @@
         <div class="container">
             <a href="#About">About</a>
             <a href="#Experience">Experience</a>
-			<a href="#Skills">Skills</a>
-			<a href="#Projects">Projects</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Projects">Projects</a>
             <a href="#Connect">Connect</a>
-			
         </div>
     </nav>
 
@@ -34,63 +30,68 @@
         <section id="About">
             <h2>About</h2>
             <p>I'm a highly motivated and detail-oriented person with a passion for learning and growth. I enjoy working on projects that challenge me and allow me to develop new skills.</p>
-    <p>My expertise lies in automated testing frameworks, emphasizing efficiency and accuracy. I advocate for proactive quality assurance, integrating testing early in the development cycle to ensure each release meets the highest standards of user experience and reliability.</p>
-    <p>Additionally, I have a strong background in web development, where I create responsive and user-friendly web applications. I continuously strive to improve my skills and keep up with the latest trends and technologies in the industry.</p>
+            <p>I have a strong background in web development, where I create responsive and user-friendly web applications. I continuously strive to improve my skills and keep up with the latest trends and technologies in the industry.</p>
         </section>
 
         <section id="Experience">
             <h2>Experience</h2>
             <ul>
-                <li>Company A</li>
-                <li>Internship C</li>
+                <li><strong>Code the Dream - Web Development Intern,</strong>  
+                <p><strong>May 2024-Present</strong></p></li>
+                <li>Assist and collaborate in the design, development, and maintenance of responsive websites using HTML, CSS, and JavaScript.</li>
             </ul>
         </section>
 
-		<section id="Skills">
+        <section id="Skills">
             <h2>Skills</h2>
             <ul>
-
+                <!-- Skills will be dynamically added by JavaScript -->
             </ul>
         </section>
-		<section id="Projects">
+
+        <section id="Projects">
             <h2>Projects</h2>
-            <ol id="project_list"></ol>
+            <ul id="project_list">
+                <!-- Project list dynamically populated by JavaScript -->
+            </ul>
         </section>
 
         <section id="Connect">
             <h2>Connect</h2>
             <ul>
-                <li><a href="https://discordapp.com/users/nataliasirt_79907" target="_blank" class="item"> <img class="ico" src="./icons/discord.svg" alt="discord"><span>Discord</span></a></li>
-                <li><a href="https://github.com/nataliasirt" target="_blank" class="item"> <img class="ico" src="./icons/github.svg" alt="github"><span>Github: natalias</span></a></li>
-                <li><a href="https://www.linkedin.com/in/natalia-sirtak/" target="_blank" class="item"> <img class="ico" src="./icons/linkedIn.svg" alt="linkedIn"><span>LinkedIn: Natalia Sirtak</span></a></li>
+                <li><a href="https://discordapp.com/users/nataliasirt_79907" target="_blank" class="item"> 
+                    <img class="ico" src="./icons/discord.svg" alt="discord"><span>Discord</span></a></li>
+                <li><a href="https://github.com/nataliasirt" target="_blank" class="item"> 
+                    <img class="ico" src="./icons/github.svg" alt="github"><span>Github: natalias</span></a></li>
+                <li><a href="https://www.linkedin.com/in/natalia-sirtak/" target="_blank" class="item"> 
+                    <img class="ico" src="./icons/linkedIn.svg" alt="linkedIn"><span>LinkedIn: Natalia Sirtak</span></a></li>
             </ul>
         </section>
 
-        <section id="Leave a Message">
+        <section id="LeaveMessage">
             <h2>Leave a Message</h2>
             <form name="leave_message">
-              <label for="usersName">Name:</label>
-              <input type="text" name="usersName" required>
-              <br>
-              
-              <label for="usersEmail">Email:</label>
-              <input type="email" name="usersEmail" required>
-              <br>
-              
-              <label for="usersMessage">Message:</label>
-              <textarea name="usersMessage" required></textarea>
-              <br>
-              
-              <button type="submit">Submit</button>
+                <label for="usersName">Name:</label>
+                <input type="text" name="usersName" required>
+                <br>
+        
+                <label for="usersEmail">Email:</label>
+                <input type="email" name="usersEmail" required>
+                <br>
+        
+                <label for="usersMessage">Message:</label>
+                <textarea name="usersMessage" required></textarea>
+                <br>
+        
+                <button type="submit">Submit</button>
             </form>
-          </section>
-          
-          <section id="messages">
+        </section>
+        
+        <section id="messages">
             <h2>Messages</h2>
             <ul></ul>
-          </section>          
-    </div>
-    <script src = "./js/index.js"></script>
-</body>
-</html>
- 
+        </section>
+        
+        </div>
+        <script src="./js/index.js"></script>
+        </body>
